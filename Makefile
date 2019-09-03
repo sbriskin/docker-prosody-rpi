@@ -35,10 +35,13 @@ run: ## Run container
 		-e LOCAL=user \
 		-e DOMAIN=localhost \
 		-e PASSWORD=secret \
-		-v `pwd`/config:/srv/prosody \
+		-v `pwd`/config:/etc/prosody \
 		-v `pwd`/log:/var/log/prosody \
 	$(IMAGE_NAME):$(TAG)
 	sleep 3 && docker ps -a
+
+shell: ## Start interactive shell inside container
+	docker exec -it $(NAME) /bin/bash
 
 kill: ## Stop and remove container
 	docker kill $(NAME)
