@@ -2,7 +2,7 @@ NAME := prosody-rpi
 TAG := 0.11.2
 IMAGE_NAME := sbriskin/$(NAME)
 
-.PHONY: help build push clean
+.PHONY: help build push clean run shell kill
 
 help:
 	@printf "$$(grep -hE '^\S+:.*##' $(MAKEFILE_LIST) | sed -e 's/:.*##\s*/:/' -e 's/^\(.\+\):\(.*\)/\ \1\ :\2/' | column -c2 -t -s :)\n"
